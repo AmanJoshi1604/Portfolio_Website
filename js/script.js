@@ -1,4 +1,4 @@
-// The Matrix Canvas Element
+// --- THE MATRIX CANVAS ELEMENT ---
 const canvas = document.getElementById('matrix-canvas');
 const ctx = canvas.getContext('2d');
 
@@ -57,8 +57,7 @@ window.addEventListener('resize', () => {
 });
 
 // --- TYPEWRITER EFFECT ---
-
-const targetText = "> System.Online";
+const targetText = "> Welcome to the digital realm. Accessing data streams...";
 const typingSpeed = 100; // Milliseconds between each keystroke (lower is faster)
 let charIndex = 0;
 
@@ -79,7 +78,6 @@ function typeWriter() {
 }
 
 // --- SCROLL REVEAL OBSERVER ---
-
 // 1. Create the observer
 const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
@@ -88,8 +86,6 @@ const observer = new IntersectionObserver((entries) => {
             // Add the 'show' class to trigger the CSS animation
             entry.target.classList.add('show');
         } 
-        // Optional: remove 'show' if you want them to hide again when scrolling up
-        // else { entry.target.classList.remove('show'); }
     });
 }, {
     // Triggers when 10% of the element is visible
@@ -115,7 +111,6 @@ window.addEventListener('mousemove', (e) => {
     cursorDot.style.top = `${posY}px`;
 
     // Use a tiny delay to move the ring for a smooth, trailing effect
-    // RequestAnimationFrame makes it silky smooth on high refresh rate monitors
     requestAnimationFrame(() => {
         cursorRing.style.left = `${posX}px`;
         cursorRing.style.top = `${posY}px`;
@@ -126,12 +121,10 @@ window.addEventListener('mousemove', (e) => {
 const clickables = document.querySelectorAll('a, button, input, textarea');
 
 clickables.forEach((el) => {
-    // When the mouse enters a button...
     el.addEventListener('mouseenter', () => {
         document.body.classList.add('cursor-active');
     });
     
-    // When the mouse leaves a button...
     el.addEventListener('mouseleave', () => {
         document.body.classList.remove('cursor-active');
     });
@@ -147,27 +140,25 @@ soundToggleBtn.addEventListener('click', () => {
     soundEnabled = !soundEnabled;
     soundToggleBtn.innerText = soundEnabled ? "AUDIO: ON" : "AUDIO: OFF";
     
-    // Web Audio requires a user gesture to resume the audio context
     if (soundEnabled && audioCtx.state === 'suspended') {
         audioCtx.resume();
     }
     
-    if (soundEnabled) playHoverSound(); // Play a test sound when turning on
+    if (soundEnabled) playHoverSound(); 
 });
 
 // Sound Generator: Hover Blip
 function playHoverSound() {
     if (!soundEnabled) return;
-    
     const oscillator = audioCtx.createOscillator();
     const gainNode = audioCtx.createGain();
     
-    oscillator.type = 'sine'; // Smooth electronic tone
-    oscillator.frequency.setValueAtTime(800, audioCtx.currentTime); // High pitch
-    oscillator.frequency.exponentialRampToValueAtTime(1200, audioCtx.currentTime + 0.05); // Pitch bend up
+    oscillator.type = 'sine'; 
+    oscillator.frequency.setValueAtTime(800, audioCtx.currentTime); 
+    oscillator.frequency.exponentialRampToValueAtTime(1200, audioCtx.currentTime + 0.05); 
     
-    gainNode.gain.setValueAtTime(0.1, audioCtx.currentTime); // Low volume
-    gainNode.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.1); // Fade out fast
+    gainNode.gain.setValueAtTime(0.1, audioCtx.currentTime); 
+    gainNode.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.1); 
     
     oscillator.connect(gainNode);
     gainNode.connect(audioCtx.destination);
@@ -179,15 +170,14 @@ function playHoverSound() {
 // Sound Generator: Keystroke Tap
 function playTypeSound() {
     if (!soundEnabled) return;
-    
     const oscillator = audioCtx.createOscillator();
     const gainNode = audioCtx.createGain();
     
-    oscillator.type = 'square'; // Harsh, mechanical tone
-    oscillator.frequency.setValueAtTime(150, audioCtx.currentTime); // Low pitch
+    oscillator.type = 'square'; 
+    oscillator.frequency.setValueAtTime(150, audioCtx.currentTime); 
     
-    gainNode.gain.setValueAtTime(0.05, audioCtx.currentTime); // Very quiet
-    gainNode.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.03); // Instant fade
+    gainNode.gain.setValueAtTime(0.05, audioCtx.currentTime); 
+    gainNode.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.03); 
     
     oscillator.connect(gainNode);
     gainNode.connect(audioCtx.destination);
@@ -203,6 +193,7 @@ document.querySelectorAll('a, button').forEach(el => {
 
 // --- INTERACTIVE TERMINAL LOGIC ---
 const terminalInput = document.getElementById('terminal-input');
+const terminalOutput = document.getElementById('terminal-output');
 
 // 1. The Dictionary of Secret Commands
 const commands = {
@@ -217,34 +208,30 @@ const commands = {
 // 2. Listen for the "Enter" key
 terminalInput.addEventListener('keydown', function(e) {
     if (e.key === 'Enter') {
-        const command = this.value.trim().toLowerCase(); // Grab text and make it lowercase
+        const command = this.value.trim().toLowerCase(); 
         
         if (command) {
             processCommand(command);
         }
         
-        this.value = ''; // Clear the input box after they hit enter
+        this.value = ''; 
     }
 });
 
 // 3. Process the command and print the result
 function processCommand(cmd) {
-    // Play the keystroke sound if audio is enabled!
     if (typeof playTypeSound === "function") playTypeSound(); 
 
-    // A. Print what the user typed
     addTerminalLine(`guest@system:~$ ${cmd}`, 'terminal-line');
 
-    // B. Figure out how the computer should respond
     if (cmd === 'clear') {
-        terminalOutput.innerHTML = ''; // Wipes the screen
+        terminalOutput.innerHTML = ''; 
     } else if (commands[cmd]) {
-        addTerminalLine(commands[cmd], 'terminal-response'); // Prints the secret answer
+        addTerminalLine(commands[cmd], 'terminal-response'); 
     } else {
         addTerminalLine(`Command not found: ${cmd}. Type 'help' for a list of valid inputs.`, 'terminal-response');
     }
 
-    // C. Always auto-scroll to the bottom so they can see the newest text
     const container = document.getElementById('terminal-container');
     container.scrollTop = container.scrollHeight;
 }
@@ -253,7 +240,6 @@ function processCommand(cmd) {
 function addTerminalLine(text, className) {
     const line = document.createElement('div');
     line.className = className;
-    // Converts the \n in our dictionary into actual HTML line breaks
     line.innerHTML = text.replace(/\n/g, '<br>'); 
     terminalOutput.appendChild(line);
 }
@@ -262,7 +248,6 @@ function addTerminalLine(text, className) {
 const bootScreen = document.getElementById('boot-screen');
 const bootText = document.getElementById('boot-text');
 
-// The fake system checks
 const bootSequence = [
     "INIT SYSTEM_CORE...",
     "LOADING KERNEL MODULES... [OK]",
@@ -277,11 +262,9 @@ let bootIndex = 0;
 
 function runBootSequence() {
     if (bootIndex < bootSequence.length) {
-        // Create a new line of text
         const line = document.createElement('div');
         line.className = 'boot-line';
         
-        // Make the [WARNING] text flash magenta for extra effect
         if (bootSequence[bootIndex].includes("[WARNING]")) {
             line.innerHTML = bootSequence[bootIndex].replace("[WARNING]", "<span style='color: var(--neon-secondary);'>[WARNING]</span>");
         } else {
@@ -291,18 +274,13 @@ function runBootSequence() {
         bootText.appendChild(line);
         bootIndex++;
         
-        // Randomize the delay between 50ms and 300ms so it looks like a real computer thinking
         setTimeout(runBootSequence, Math.random() * 250 + 50);
     } else {
-        // When the sequence finishes, wait half a second, then fade out the black screen
         setTimeout(() => {
             bootScreen.classList.add('fade-out');
             
-            // Wait for the fade animation to finish, then delete the boot screen entirely
             setTimeout(() => {
                 bootScreen.style.display = 'none';
-                
-                // NOW trigger the main typewriter effect on the website!
                 setTimeout(typeWriter, 300); 
             }, 800);
             
@@ -310,32 +288,24 @@ function runBootSequence() {
     }
 }
 
-// Start the boot sequence as soon as the webpage loads
-window.addEventListener('load', runBootSequence);
-
 // --- LIVE GITHUB FETCHING ---
-const GH_USERNAME = 'AmanJoshi1604'; // <--- CHANGE THIS!
+const GH_USERNAME = 'AmanJoshi1604'; 
 
 async function fetchGitHubRepos() {
     const projectContainer = document.getElementById('github-projects');
     
     try {
-        // Fetch up to 6 of your most recently updated public repos
         const response = await fetch(`https://api.github.com/users/${GH_USERNAME}/repos?sort=updated&per_page=6`);
         const repos = await response.json();
 
-        // Clear the loading message
         projectContainer.innerHTML = '';
 
         repos.forEach(repo => {
-            // Skip forks (optional - remove this if you want to show forks)
             if (repo.fork) return;
 
-            // Create the project card structure
             const card = document.createElement('div');
-            card.className = 'glass-panel project-card hidden'; // Uses your existing styles
+            card.className = 'glass-panel project-card hidden'; 
             
-            // Handle missing descriptions
             const description = repo.description ? repo.description : "No description provided for this repository.";
 
             card.innerHTML = `
@@ -351,7 +321,6 @@ async function fetchGitHubRepos() {
             projectContainer.appendChild(card);
         });
 
-        // Re-run the Scroll Observer so the new cards fade in!
         const newCards = projectContainer.querySelectorAll('.hidden');
         newCards.forEach((el) => observer.observe(el));
 
@@ -361,16 +330,9 @@ async function fetchGitHubRepos() {
     }
 }
 
-// Trigger the fetch after the site loads
-window.addEventListener('load', fetchGitHubRepos);
-
 // --- SECURE UPLINK: FORM SUBMISSION ---
-
 let submitted = false;
 
-/**
- * Triggered by the iframe's onload event defined in HTML
- */
 function showSuccess() {
     const formStatus = document.getElementById('form-status');
     const submitBtn = document.getElementById('submit-btn');
@@ -384,11 +346,9 @@ function showSuccess() {
     submitBtn.classList.remove('transmitting');
     submitBtn.innerText = "Transmit_Data";
     
-    // Reset submission state
     submitted = false;
 }
 
-// Update your submit button listener to handle the visual "sending" state
 const contactForm = document.getElementById('contact-form');
 const submitBtn = document.getElementById('submit-btn');
 const formStatus = document.getElementById('form-status');
@@ -399,4 +359,26 @@ contactForm.addEventListener('submit', () => {
     formStatus.style.display = "block";
     formStatus.innerText = "> INITIALIZING DATA HANDSHAKE...";
     if (soundEnabled) playTypeSound();
+});
+
+// ==========================================
+// --- 8. INITIALIZATION CONTROL ---
+// ==========================================
+window.addEventListener('load', () => {
+    // 1. Fetch GitHub data
+    fetchGitHubRepos(); 
+    
+    // 2. Start the Boot Sequence (which triggers the Typewriter automatically when done)
+    runBootSequence();
+    
+    // 3. Auto-print the terminal hint exactly 2 seconds after the page loads
+    setTimeout(() => {
+        const output = document.getElementById('terminal-output');
+        const hint = document.createElement('div');
+        hint.className = 'terminal-response';
+        hint.style.color = 'var(--neon-secondary)'; // Magenta so it pops
+        hint.innerText = "> SYSTEM READY. Type 'help' to view available commands.";
+        
+        if (output) output.appendChild(hint);
+    }, 2000); 
 });
