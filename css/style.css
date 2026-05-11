@@ -600,3 +600,62 @@ html {
     color: var(--neon-secondary);
     text-shadow: 0 0 5px var(--neon-secondary);
 }
+
+/* --- SOCIAL LINKS BAR --- */
+.social-links-bar {
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    border-top: 1px dashed rgba(0, 255, 255, 0.2); /* Subtle dividing line */
+    padding-top: 25px;
+}
+
+.neon-text-link {
+    color: var(--text-muted);
+    font-size: 13px;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    text-decoration: none;
+    letter-spacing: 2px;
+    position: relative;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+/* 1. The Hover Glow */
+.neon-text-link:hover {
+    color: var(--neon-secondary); /* Flashes magenta */
+    text-shadow: 0 0 8px var(--neon-secondary);
+}
+
+/* 2. The Hidden Targeting Brackets */
+.neon-text-link::before,
+.neon-text-link::after {
+    position: absolute;
+    opacity: 0;
+    color: var(--neon-primary); /* Cyan brackets */
+    text-shadow: 0 0 5px var(--neon-primary);
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.neon-text-link::before {
+    content: '[';
+    left: 0px;
+}
+
+.neon-text-link::after {
+    content: ']';
+    right: 0px;
+}
+
+/* 3. The Animation: Brackets slide outward and fade in on hover */
+.neon-text-link:hover::before {
+    opacity: 1;
+    left: -15px;
+}
+
+.neon-text-link:hover::after {
+    opacity: 1;
+    right: -15px;
+}
