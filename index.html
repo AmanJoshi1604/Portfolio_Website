@@ -1,254 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Personal Portfolio Website</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="https://kit.fontawesome.com/61d567b22a.js" crossorigin="anonymous"></script>
+    <title>Futuristic Portfolio</title>
+    <style>
+        /* Base Setup & Futuristic Background */
+        body {
+            background-color: #050510;
+            background-image: radial-gradient(circle at 50% 50%, #111125 0%, #050510 100%);
+            color: #e0e0e0;
+            font-family: 'Courier New', Courier, monospace; /* Techy font */
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        /* Glassmorphism Container */
+        .glass-panel {
+            background: rgba(25, 25, 40, 0.4);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(0, 255, 255, 0.2);
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 600px;
+            width: 100%;
+            box-shadow: 0 0 30px rgba(0, 255, 255, 0.05), inset 0 0 20px rgba(255, 0, 255, 0.05);
+            text-align: center;
+        }
+
+        /* Neon Typography */
+        h1 {
+            color: #00ffff;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            text-shadow: 0 0 10px rgba(0, 255, 255, 0.8);
+            margin-bottom: 10px;
+        }
+
+        p {
+            line-height: 1.6;
+            color: #a0a0b0;
+            margin-bottom: 30px;
+        }
+
+        /* Cyberpunk Interactive Button */
+        .neon-btn {
+            background: transparent;
+            color: #ff00ff;
+            border: 2px solid #ff00ff;
+            padding: 12px 24px;
+            font-size: 16px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .neon-btn:hover {
+            background: #ff00ff;
+            color: #000;
+            box-shadow: 0 0 20px #ff00ff;
+        }
+    </style>
 </head>
-
 <body>
-    <div id="header">
-        <div class="container">
-            <nav>
-                <img src="Images/logo.png" class="logo">
-                <ul id="sidemenu">
-                    <li><a href="#header">Home</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="#mywork">My Work</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                    <i class="fa-solid fa-xmark" onclick="closemenu()"></i>
-                </ul>
-                <i class="fa-solid fa-bars" onclick="openmenu()"></i>
-            </nav>
-            <div class="header-text">
-                <p>Cyber Security Enthusiast</p>
-                <h1>Hi, I'm <span>Aman</span> Joshi</h1>
-            </div>
-        </div>
+
+    <div class="glass-panel">
+        <h1>// SYS.INIT</h1>
+        <p>Initializing portfolio protocol. I am a developer building the digital frontier. Welcome to my node.</p>
+        <button class="neon-btn">Execute_Projects</button>
     </div>
-    <!-- ----------------about------------------->
-    <div id="about">
-        <div class="container">
-            <div class="row">
-                <div class="about-col-1">
-                    <img src="Images/me.jpg">
-                </div>
-                <div class="about-col-2">
-                    <h1 class="sub-title">About Me</h1>
-                    <p>Hi, I'm a fervent advocate for cyber security, dedicated to fortifying digital landscapes with knowledge and vigilance.
-                        Passionately pursuing solutions to safeguard against evolving cyber threats, championing resilience in an interconnected world.
-                    Currently I'm studing in Jabalpur Engineering College.
-                    I'm pursuing Master's in Computer Application (MCA).
-                    </p>
-                    <div class="tab-titles">
-                        <p class="tab-links active-link" onclick="opentab('Experience')">Experience</p>
-                        <p class="tab-links" onclick="opentab('Skills')">Skills</p>
-                        <p class="tab-links" onclick="opentab('Education')">Education</p>
-                    </div>
-                   
-                    <div class="tab-contents active-tab" id="Experience">
-                        <ul>
-                            <li><span><h3>Cyber Security Intern (09/2023 - 11/2023)</h3></span><h5>IBM(Edunet Foundation)</h5><br>Implementation of cipher text into programming 
-                                language using Python so that it can be used for text encryption. Use of the concept of Steganography in implementing 
-                                of the project algorithm.learned new technologies like Incident Response, Network Security, Encryption andAuthentication.</li>
-                            <br>
-                            <li><span><h3>Sofware Testing Intern (04/2023 - 05/2023)</h3></span><h5>PHN Technology</h5><br>Creation of the test cases and after all the test 
-                                cases were made report those test cases to the developer. Finding the bugs and issues in the software that were given by 
-                                the company. Implementation of test cases in excel and the concept of the manual testing.</li>
-                            <br>
-                            <li><span><h3>Web Development Intern (07/2023 - 08/2023)</h3></span><h5>InternPe</h5><br>Creation of Web Pages and finding bugs in the given website 
-                                so that it can run normally. Creation of Commerce Websites with better and optimised website with quick response and sophisticated 
-                                dashboard. Implementation in project using different web technologies to make the project more optimised and moresophisticated. </li>
-                        </ul>
-                    </div>
 
-                     <div class="tab-contents" id="Skills">
-                        <ul>
-                            <h2>Technical Skills</h2>
-                            <br>
-                            <li><span><h3>Cyber Security</h3></span>Incident Response Packet Sniffers, Siem Tools, Intrution Detection, Log Analysis,
-                                <br>Steganography, NIST, Python, Cyber Security Risk, Cryptography, Information security management system</li>
-                            <br>
-                            <li><span><h3>Software Testing</h3></span>Test Cases, Api Testing, App Testing, Manual Testing, STLC, Software Testing.</li>
-                            <br>
-                            <li><span><h3>Web Development</h3></span>HTML, CSS, Javascript, Node.js, React.js, Express.js, GSAP, Scrollreveal, Git, Tailwind, Mongo.</li>
-                            <br>
-                            <h2>Soft Skills</h2>
-                            <br>
-                            <p>Team Work, Communication, Problem Solving, Analytical Skill, Attention to detail, Time management, Active Listener, Innovative, Realistic, Adaptibility</p>
-                        </ul>
-                    </div>
-                    
-                    <div class="tab-contents" id="Education">
-                        <ul>
-                            <li><span><h3>Master's of Computer Application (08/2023 - Present)</h3></span>Jabalpur Engineering College</li>
-                            <br>
-                            <li><span><h3>Bachelor of Science (07/2019 - 06/2022)</h3></span>Aryansh Group of Arts and Management</li>
-                            <br>
-                            <li><span><h3>High School (05/2018 - 04/2019)</h3></span>Gwalior Public Higher Secondary School</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- ----------------services----------------------->
-    <div id="services">
-        <div class="container">
-            <h1 class="sub-title">My Services</h1>
-            <div class="services-list">
-                <div>
-                    <i class="fa-solid fa-code"></i>
-                    <h2>Cyber Security</h2>
-                    <p>Cyber security, the vigilant shield of digital realms, warding off threats with code and conscience.
-                        In the realm of cyberspace, safeguarding data's sanctity, where every bit of defense fortifies our digital sovereignty.</p>
-                    <a href="https://en.wikipedia.org/wiki/Computer_security">Learn More</a>
-                </div>
-                <div>
-                    <i class="fa-solid fa-cubes"></i>
-                    <h2>Software Testing</h2>
-                    <p>A meticulous examiner of code, ensuring software functions flawlessly before reaching users' hands. 
-                        Dedicated to uncovering bugs and glitches, enhancing the quality and reliability of digital products.</p>
-                    <a href="https://en.wikipedia.org/wiki/Software_testing">Learn More</a>
-                </div>
-                <div>
-                    <i class="fa-solid fa-vial-circle-check"></i>
-                    <h2>Web Development</h2>
-                    <p>Crafting digital experiences with code, shaping the virtual realms where creativity meets functionality. 
-                        Web developers weave intricate algorithms into seamless user interfaces, building bridges between imagination and interaction..</p>
-                    <a href="https://en.wikipedia.org/wiki/Web_development">Learn More</a>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- ----------------mywork------------------->
-    <div id="mywork"></div>
-    <div class="mywork">
-        <div class="container">
-            <h1 class="sub-title">My Work</h1>
-            <div class="work-list">
-                <div class="work">
-                    <img src="Images/work-1.jpg">
-                    <div class="layer">
-                        <h3>Playsation Website Clone</h3>
-                        <p>Website cloning is generally referred to as the process of creating a 
-                            replica of an existing website, or simply put, copying a website or its 
-                            design and associated elements. Whereas the beneficiary of the clone 
-                            would not need to have the scripts re-written and would benefit 
-                            from a “ready-made” marketing tool, the process has sensitive 
-                            associated legal implications</p>
-                        <a href="https://github.com/AmanJoshi1604/Clone-Website.git"><i class="fa-solid fa-link"></i></a>
-                    </div>
-                </div>
-                <div class="work">
-                    <img src="Images/work-2.jpg">
-                    <div class="layer">
-                        <h3>Text-Hider</h3>
-                        <p>The Text-hider project is a revolutionary tool designed to encrypt sensitive information seamlessly within text. 
-                            Utilizing advanced cryptographic techniques, it conceals data within seemingly innocuous text, ensuring confidentiality and security. 
-                            With its user-friendly interface, anyone can safeguard their messages from prying eyes with ease. 
-                            From personal communication to corporate secrets, Text-hider offers a robust solution for protecting sensitive content. 
-                            Embrace the power of encryption and keep your information safe with Text-hider.</p>
-                        <a href="https://github.com/AmanJoshi1604/Text-Hider.git"><i class="fa-solid fa-link"></i></a>
-                    </div>
-                </div>
-                <div class="work">
-                    <img src="Images/work-3.jpg">
-                    <div class="layer">
-                        <h3>AI Image Generator</h3>
-                        <p>An AI image generator, fueled by algorithms, transforms data into stunning visual compositions. 
-                            Through neural networks, it interprets patterns and creates captivating images with astonishing realism. 
-                            Harnessing the power of machine learning, it continuously refines its output, pushing the boundaries of artistic expression. 
-                            With each iteration, it unveils new possibilities, blurring the lines between imagination and reality. 
-                            A testament to the ingenuity of artificial intelligence, shaping the future of visual creativity.</p>
-                        <a href="https://github.com/AmanJoshi1604/ai-image-generator.git"><i class="fa-solid fa-link"></i></a>
-                    </div>
-                </div>
-            </div>
-            <a href="#" class="btn">See More</a>
-        </div>
-    </div>
-    <!-- ----------------contact----------------- -->
-    <div id="contact"></div>
-    <div class="contact">
-        <div class="container">
-            <div class="row">
-                <div class="contact-left">
-                    <h1 class="sub-title">Contact Me</h1>
-                    <p><i class="fa-solid fa-paper-plane"></i>joshiaman1604@gmail.com</p>
-                    <p><i class="fa-solid fa-phone"></i>+91-8989792276</p>
-                    <div class="social-icon">
-                        <a href="https://www.facebook.com/profile.php?id=100089047587570"><i class="fa-brands fa-facebook"></i></a>
-                        <a href="https://www.instagram.com/aman__1604/"><i class="fa-brands fa-instagram"></i></a>
-                        <a href="https://www.linkedin.com/public-profile/settings?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_self_edit_contact-info%3BUO09nfppQh6Q52IToTx0tQ%3D%3D"><i class="fa-brands fa-linkedin"></i></a>
-                        <a href="https://github.com/AmanJoshi1604"><i class="fa-brands fa-github"></i></a>
-                    </div>
-                    <a href="Images/Aman_joshi_Resume.pdf" download class="btn btn2">Download Resume</a>
-                </div>
-                <div class="contact-right">
-                    <form name="submit-to-google-sheet">
-                        <input type="text" name="Name" placeholder="Your Name" required>
-                        <input type="email" name="Email" placeholder="Your Email" required>
-                        <textarea name="Message" rows="6" placeholder="Your Message"></textarea>
-                        <button type="submit" class="btn btn2">Submit</button>
-                    </form>
-                    <span id="msg"></span>
-                </div>
-            </div>
-        </div>
-        <div class="copyright">
-            <p>Copyright © Aman Joshi.</p>
-        </div>
-    </div>
-    <script>
-        var tablinks = document.getElementsByClassName("tab-links");
-        var tabcontents = document.getElementsByClassName("tab-contents");
-
-        function opentab(tabname) {
-            for (tablink of tablinks) {
-                tablink.classList.remove("active-link");
-            }
-            for (tabcontent of tabcontents) {
-                tabcontent.classList.remove("active-tab");
-            }
-            event.currentTarget.classList.add("active-link");
-            document.getElementById(tabname).classList.add("active-tab");
-        }
-    </script>
-
-    <script>
-        var sidemenu = document.getElementById("sidemenu");
-
-        function openmenu() {
-            sidemenu.style.right = '0';
-        }
-
-        function closemenu() {
-            sidemenu.style.right = '-200px';
-        }
-    </script>
-   <script>
-    const scriptURL = 'https://script.google.com/macros/s/AKfycbxD-p9rDHJAZreuMgbA4Kh-HeSh2Z6liymc5CnXtHdwTTXEgPnIBXvBgkzQLAxOIpoyXw/exec'
-    const form = document.forms['submit-to-google-sheet']
-    const msg = document.getElementById("msg")
-
-    form.addEventListener('submit', e => {
-      e.preventDefault()
-      fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-        .then(response => {
-            msg.innerHTML = "Message sent successfully"
-            setTimeout(function(){
-                msg.innerHTML = ""
-            },5000)
-            form.reset()
-        })
-        .catch(error => console.error('Error!', error.message))
-    })
-  </script>
 </body>
-
 </html>
