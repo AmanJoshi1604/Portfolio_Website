@@ -203,14 +203,13 @@ document.querySelectorAll('a, button').forEach(el => {
 
 // --- INTERACTIVE TERMINAL LOGIC ---
 const terminalInput = document.getElementById('terminal-input');
-const terminalOutput = document.getElementById('terminal-output');
 
 // 1. The Dictionary of Secret Commands
 const commands = {
-    'help': 'AVAILABLE PROTOCOLS: \n> help   - displays this message \n> skills - access neural net capabilities \n> whoami - user identity query \n> clear  - wipe terminal history \n> sudo   - elevate privileges',
-    'skills': 'ACCESSING NEURAL NET... \n> VERSION CONTROL: [Architect Level] \n> FRONT-END: [Mastered] \n> BACK-END: [Advanced] \n> SYSTEM ARCHITECTURE: [Optimized]',
-    'whoami': 'Identity: Unregistered Guest. \nStatus: Monitored.',
-    'sudo': 'ERROR: Unauthorized access detected. Incident logged and reported to CyberSec.',
+    'help': 'AVAILABLE PROTOCOLS: \n> help   - displays this message \n> skills - access neural net capabilities \n> whoami - user identity query \n> clear  - wipe terminal history',
+    'skills': 'ACCESSING NEURAL NET... \n> DATA: [Pandas, NumPy, SQL, Excel] \n> ML/AI: [Scikit-learn, LSTM, Isolation Forests] \n> CYBER: [Log Analysis, Steganography, Cryptography] \n> DEVOPS: [Docker, Fast API, Bash]',
+    'whoami': 'Identity: Aman Joshi. \nDesignation: Data Analyst & CyberSec Specialist. \nStatus: Actively monitoring data streams.',
+    'clear': 'CLS',
     'matrix': 'Wake up, Neo... The Matrix has you.',
     'hello': 'Hello, User. Awaiting input...'
 };
