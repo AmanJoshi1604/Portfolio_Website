@@ -70,12 +70,6 @@ Since this project uses pure HTML, CSS, and JS, there is no build process or pac
 
 ### Installation
 1. Clone the repository:
-
-```
-
-```text
-Markdown file generated successfully.
-
 ```bash
    git clone [https://github.com/AmanJoshi1604/cyberpunk-portfolio.git](https://github.com/AmanJoshi1604/cyberpunk-portfolio.git)
 
