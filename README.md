@@ -70,15 +70,14 @@ Since this project uses pure HTML, CSS, and JS, there is no build process or pac
 
 ### Installation
 1. Clone the repository:
+
 ```bash
    git clone [https://github.com/AmanJoshi1604/cyberpunk-portfolio.git](https://github.com/AmanJoshi1604/cyberpunk-portfolio.git)
-
 ```
 
 2. Navigate to the project directory:
 ```bash
 cd cyberpunk-portfolio
-
 ```
 
 
