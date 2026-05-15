@@ -99,6 +99,7 @@ hiddenElements.forEach((el) => observer.observe(el));
 // --- CUSTOM CROSSHAIR LOGIC ---
 const cursorDot = document.getElementById('cursor-dot');
 const cursorRing = document.getElementById('cursor-ring');
+const neonGlow = document.getElementById('neon-glow-layer');
 
 // 1. Make the custom cursor follow the mouse
 window.addEventListener('mousemove', (e) => {
@@ -115,6 +116,15 @@ window.addEventListener('mousemove', (e) => {
         cursorRing.style.left = `${posX}px`;
         cursorRing.style.top = `${posY}px`;
     });
+// --- Move the background glow ---
+    neonGlow.style.opacity = '1'; 
+    neonGlow.style.setProperty('--mouse-x', `${posX}px`);
+    neonGlow.style.setProperty('--mouse-y', `${posY}px`);
+});
+
+// --- Fade out the glow if the mouse leaves the browser window ---
+document.body.addEventListener('mouseleave', () => {
+    neonGlow.style.opacity = '0';
 });
 
 // 2. Add the "Active/Targeting" effect when hovering over clickable items
