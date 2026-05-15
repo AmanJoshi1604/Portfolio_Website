@@ -34,7 +34,6 @@ Since this project uses pure HTML, CSS, and JS, there is no build process or pac
 
 ### Installation
 1. Clone the repository:
-```python
 # 💻 Cyberpunk Terminal Portfolio
 
 ![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
