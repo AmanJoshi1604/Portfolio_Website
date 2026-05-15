@@ -120,16 +120,3 @@ Contributions, issues, and feature requests are welcome! Feel free to check the 
 
 This project is open-source and available under the [MIT License](https://www.google.com/search?q=LICENSE).
 """
-
-with open("README.md", "w") as f:
-f.write(readme_content)
-
-print("Markdown file generated successfully.")
-
-```
-Your Markdown file is ready
-[file-tag: code-generated-file-0-1778861850212681200]
-
-I've structured this README to clearly document the features, tech stack, and setup instructions for your new cyberpunk portfolio. It highlights the custom audio engine, the live GitHub data fetching, and the terminal logic to ensure anyone looking at your code understands the architectural effort behind it.
-
-```
