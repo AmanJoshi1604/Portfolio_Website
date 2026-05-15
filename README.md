@@ -115,8 +115,3 @@ To customize this portfolio for your own use:
 ## 🤝 Contributing
 
 Contributions, issues, and feature requests are welcome! Feel free to check the [issues page](https://www.google.com/search?q=%23).
-
-## 📝 License
-
-This project is open-source and available under the [MIT License](https://www.google.com/search?q=LICENSE).
-"""
